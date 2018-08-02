@@ -8,8 +8,13 @@ import { Component } from '@angular/core';
 
 export class HomeComponent {
   isSignInVisible: boolean = false;
+  isSignUpVisible: boolean = false;
 
   toggleSignIn () {
     this.isSignInVisible = !this.isSignInVisible;
+  }
+
+  toggleSignUp () {
+    this.isSignUpVisible = !this.isSignUpVisible;
   }
 }

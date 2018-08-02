@@ -6,8 +6,9 @@
   <span *ngIf="!isLoggedIn" class="login-links">
     <a href="#" (click)="toggleSignIn()">Sign in</a>
     or
-    <a href="#">Sign up</a>
+    <a href="#" (click)="toggleSignUp()">Sign up</a>
   </span>
 </mat-toolbar>
 
 <app-sign-in [isVisible]="isSignInVisible" (toggleVisibility)="toggleSignIn()"></app-sign-in>
+<app-sign-up [isVisible]="isSignUpVisible" (toggleVisibility)="toggleSignUp()"></app-sign-up>

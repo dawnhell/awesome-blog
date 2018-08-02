@@ -1,3 +1,78 @@
-<p>
-  sign-up works!
-</p>
+<div *ngIf="isVisible" class="sign-up-wrapper" (click)="handleMouseClick($event)">
+    <mat-card class="sign-up-card">
+      <mat-card-header color="primary">
+        <mat-card-title class="title">Please, sign up</mat-card-title>
+        <span class="fill-space"></span>
+        <mat-icon class="close-icon">close</mat-icon>
+      </mat-card-header>
+      <mat-card-content>
+        <form>
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Username" 
+              [formControl]="usernameFormControl"
+              [errorStateMatcher]="usernameMatcher"
+              class="input-text"
+            >
+            <mat-error *ngIf="!usernameFormControl.hasError('required')">
+              Please enter username
+            </mat-error>
+            <mat-error *ngIf="usernameFormControl.hasError('required')">
+              Username is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Email" 
+              [formControl]="emailFormControl"
+              [errorStateMatcher]="emailMatcher"
+              class="input-text"
+            >
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+    
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Password"
+              [type]="hide ? 'password' : 'text'"
+              [formControl]="passwordFormControl"
+              [errorStateMatcher]="passwordMatcher"
+              class="input-text"
+            >
+            <mat-icon class="visibility-icon" matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            <mat-error *ngIf="passwordFormControl.hasError('required')">
+              Please enter the password
+            </mat-error>
+          </mat-form-field>
+    
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Password again"
+              [type]="hide ? 'password' : 'text'"
+              [formControl]="passwordAgainFormControl"
+              [errorStateMatcher]="passwordAgainMatcher"
+              class="input-text"
+            >
+            <mat-icon class="visibility-icon" matSuffix (click)="hideAgain = !hideAgain">{{hideAgain ? 'visibility' : 'visibility_off'}}</mat-icon>
+            <mat-error *ngIf="passwordAgainFormControl.hasError('required')">
+              Please enter the password again
+            </mat-error>
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <button class="sign-up-btn">Sign up</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  
