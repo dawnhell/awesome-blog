@@ -11,7 +11,7 @@ const secureRoutes = require('./routes/secure-routes');
 const UserModel = require('./model/model');
 
 mongoose.connect('mongodb://127.0.0.1:27017/awesome-blog-db');
-mongoose.connection.on('error', error => console.log(error) );
+mongoose.connection.on('error', error => console.log(error));
 mongoose.Promise = global.Promise;
 
 require('./auth/auth');
@@ -23,14 +23,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(path.join(__dirname, '../dist')));
 
-app.use('/api', api);
+app.use('/', routes);
+app.use('/', secureRoutes);
 
-app.use('*', routes);
-app.use('*', secureRoutes);
-app.use('/user', passport.authenticate('jwt', { session : false }), secureRoutes );
+app.use('/api', api);
+app.use('/user', passport.authenticate('jwt', { session: false }), secureRoutes);
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../dist/index.html'));
+  res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
 const port = process.env.PORT || '3000';
