@@ -2,22 +2,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MaterialModule } from './material.module';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { PostsComponent } from './posts/posts.component';
+import { PostComponent } from './post/post.component';
+
 import { AuthService } from './auth.service';
-import { HttpClientModule } from '@angular/common/http';
+import { PostsService } from './posts.service';
+import { WritePostComponent } from './write-post/write-post.component';
+import { MyPostsComponent } from './my-posts/my-posts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    PostsComponent,
+    PostComponent,
+    WritePostComponent,
+    MyPostsComponent
   ],
   imports: [
     BrowserModule,
@@ -25,10 +34,12 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
+    AppRoutingModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    PostsService
   ],
   bootstrap: [AppComponent]
 })

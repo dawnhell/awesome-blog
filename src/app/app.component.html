@@ -1,1 +1,29 @@
-<app-home></app-home>
+<div class="header">
+    <mat-toolbar color="primary">
+        <span class="title">AB</span>
+
+        <ul class="nav-links">
+            <li><a routerLink="/posts">Posts</a></li>
+            <li><a routerLink="/write-post">Write a post</a></li>
+            <li><a routerLink="/my-posts">My posts</a></li>
+        </ul>
+
+        <span class="fill-space"></span>
+
+        <span *ngIf="!isSignedIn" class="login-links">
+            <a href="#" (click)="toggleSignIn()">Sign in</a>
+            or
+            <a href="#" (click)="toggleSignUp()">Sign up</a>
+        </span>
+
+        <span *ngIf="isSignedIn" class="signed-in-links">
+            Hello, <a href="#"><strong>{{this.username}}</strong></a>
+            <a href="#" (click)="signOut()">Sign out</a>
+        </span>
+    </mat-toolbar>
+
+    <app-sign-in [isVisible]="isSignInVisible" (toggleVisibility)="toggleSignIn($event)"></app-sign-in>
+    <app-sign-up [isVisible]="isSignUpVisible" (toggleVisibility)="toggleSignUp($event)"></app-sign-up>
+</div>
+
+<router-outlet></router-outlet>

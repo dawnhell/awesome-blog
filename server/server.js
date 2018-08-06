@@ -27,7 +27,7 @@ const poet = Poet(app, {
 });
 
 poet
-  .addRoute('/post/:post', (req, res, next) => {
+  .addRoute('/api/post/:post', (req, res, next) => {
     const post = poet.helpers.getPost(req.params.post);
     if (post) {
       res.json({ post });
@@ -35,7 +35,7 @@ poet
       res.sendStatus(404);
     }
   })
-  .addRoute('/posts', (req, res, next) => {
+  .addRoute('/api/posts', (req, res, next) => {
     res.json({ 'posts': poet.helpers.getPosts() })
   })
   .init().then(() => {

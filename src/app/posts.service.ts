@@ -7,10 +7,10 @@ export class PostsService {
     constructor (private _httpClient: HttpClient) {}
 
     getPosts (): Observable<any> {
-        return this._httpClient.get('/posts');
+        return this._httpClient.get('/api/posts');
     }
 
     getPost (postName: string): Observable<any> {
-        return this._httpClient.get('/post/' + postName);
+        return this._httpClient.get('/api/post/' + postName);
     }
 }
