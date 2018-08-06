@@ -1,5 +1,6 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 body {
+    background: rgba(0, 0, 0, 0.07);
     margin: 0;
 }

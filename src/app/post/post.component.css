@@ -1,0 +1,36 @@
+.post {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto 30px;
+    padding-bottom: 40px;
+}
+
+.post:hover {
+    -webkit-box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.2), 0 5px 16px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.2), 0 5px 16px 0 rgba(0, 0, 0, 0.19);
+}
+
+.post .title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 26px;
+    color: #1d1d1d;
+}
+
+.post .content {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: #3d3d3d;
+    margin: 0 10px;
+}
+
+.post .read-more-btn {
+  margin: 0 25px;
+  cursor: pointer;
+  transition: box-shadow .3s, background .3s;
+}
+
+.post .read-more-btn:hover {
+    background: #4559c7;
+    -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

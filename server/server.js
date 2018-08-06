@@ -24,6 +24,9 @@ const poet = Poet(app, {
   posts: './_posts/',
   metaFormat: 'json'
 });
+poet.options.readMoreLink = function (post) {
+  return '';
+};
 
 poet
   .addRoute('/api/post/:post', (req, res, next) => {
