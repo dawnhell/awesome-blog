@@ -54,6 +54,8 @@ export class SignInComponent {
           } else {
             this.isSignedIn = true;
             this.toggleVisibility.emit(data);
+            this.emailFormControl.reset();
+            this.passwordFormControl.reset();
           }
         },
         error => {
