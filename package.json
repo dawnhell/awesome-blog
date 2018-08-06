@@ -32,6 +32,7 @@
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
+    "poet": "^2.0.3",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26"
   },

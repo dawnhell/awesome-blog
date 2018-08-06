@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const http = require('http');
 const passport = require('passport');
 const mongoose = require('mongoose');
+const Poet = require('poet');
 
 const api = require('./routes/api');
 const routes = require('./routes/routes');
@@ -17,6 +18,30 @@ mongoose.Promise = global.Promise;
 require('./auth/auth');
 
 const app = express();
+
+
+const poet = Poet(app, {
+  posts: './_posts/',
+  postsPerPage: 5,
+  metaFormat: 'json'
+});
+
+poet
+  .addRoute('/post/:post', (req, res, next) => {
+    const post = poet.helpers.getPost(req.params.post);
+    if (post) {
+      res.json({ post });
+    } else {
+      res.sendStatus(404);
+    }
+  })
+  .addRoute('/posts', (req, res, next) => {
+    res.json({ 'posts': poet.helpers.getPosts() })
+  })
+  .init().then(() => {
+
+  });
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
