@@ -74,6 +74,11 @@
     background: #5077DD;
 }
 
+.sign-in-card .sign-in-btn[disabled] {
+    background: #5077DD;
+    cursor: not-allowed;
+}
+
 .sign-in-card .visibility-icon {
     cursor: pointer;
 }

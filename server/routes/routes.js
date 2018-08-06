@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken');
 const router = express.Router();
 
 router.post('/signup', passport.authenticate('signup', { session: false }), async (req, res, next) => {
-  console.log('in Routes', req);
   res.json({
     message: 'Signed up successfully!',
     user: req.user
@@ -16,8 +15,7 @@ router.post('/signin', async (req, res, next) => {
   passport.authenticate('signin', async (error, user, info) => {
     try {
       if (error || !user) {
-        const error = new Error('An error occured.');
-        return next(error);
+        return res.json({ 'error': info.message });
       }
 
       req.login(user, { session: false }, async (error) => {
@@ -26,12 +24,17 @@ router.post('/signin', async (req, res, next) => {
         const body = { _id: user._id, email: user.email };
         const token = jwt.sign({ user: body }, 'super_secrete_salt');
 
-        return res.json({ token });
+        return res.json({ token, "email": user.email });
       });
     } catch (error) {
       return next(error);
     }
   })(req, res, next);
+});
+
+router.get('/signout', (req, res, next) => {
+  req.logout();
+//   res.redirect('/');
 });
 
 module.exports = router;
