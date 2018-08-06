@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  isSignInVisible: boolean = false;
-  isSignUpVisible: boolean = false;
-  isSignedIn: boolean = false;
+  isSignInVisible = false;
+  isSignUpVisible = false;
+  isSignedIn = false;
 
   username: string = null;
   jwtToken: string = null;

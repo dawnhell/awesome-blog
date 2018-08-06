@@ -11,9 +11,9 @@
         <span class="fill-space"></span>
 
         <span *ngIf="!isSignedIn" class="login-links">
-            <a href="#" (click)="toggleSignIn()">Sign in</a>
+            <a (click)="toggleSignIn(null)">Sign in</a>
             or
-            <a href="#" (click)="toggleSignUp()">Sign up</a>
+            <a (click)="toggleSignUp()">Sign up</a>
         </span>
 
         <span *ngIf="isSignedIn" class="signed-in-links">
