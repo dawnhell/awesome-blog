@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WritePostComponent } from './write-post.component';
+import { ReadPostComponent } from './read-post.component';
 
-describe('WritePostComponent', () => {
-  let component: WritePostComponent;
-  let fixture: ComponentFixture<WritePostComponent>;
+describe('ReadPostComponent', () => {
+  let component: ReadPostComponent;
+  let fixture: ComponentFixture<ReadPostComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WritePostComponent ]
+      declarations: [ ReadPostComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WritePostComponent);
+    fixture = TestBed.createComponent(ReadPostComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -22,7 +22,6 @@ const app = express();
 
 const poet = Poet(app, {
   posts: './_posts/',
-  postsPerPage: 5,
   metaFormat: 'json'
 });
 

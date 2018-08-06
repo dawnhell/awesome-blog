@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { PostsComponent } from './posts/posts.component';
 import { WritePostComponent } from './write-post/write-post.component';
 import { MyPostsComponent } from './my-posts/my-posts.component';
+import { ReadPostComponent } from './read-post/read-post.component';
 
 const routes:Routes = [
   {
@@ -13,6 +15,10 @@ const routes:Routes = [
   {
     path: 'posts',
     component: PostsComponent
+  },
+  {
+    path: 'read/:id',
+    component: ReadPostComponent
   },
   {
     path: 'write-post',

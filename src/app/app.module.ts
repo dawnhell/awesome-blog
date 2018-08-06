@@ -17,6 +17,7 @@ import { AuthService } from './auth.service';
 import { PostsService } from './posts.service';
 import { WritePostComponent } from './write-post/write-post.component';
 import { MyPostsComponent } from './my-posts/my-posts.component';
+import { ReadPostComponent } from './read-post/read-post.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MyPostsComponent } from './my-posts/my-posts.component';
     PostsComponent,
     PostComponent,
     WritePostComponent,
-    MyPostsComponent
+    MyPostsComponent,
+    ReadPostComponent
   ],
   imports: [
     BrowserModule,
