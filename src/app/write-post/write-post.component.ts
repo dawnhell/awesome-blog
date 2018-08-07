@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class WritePostComponent implements OnInit {
   isSignedIn = false;
   username = null;
+  editor: any;
 
   constructor() { }
 

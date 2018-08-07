@@ -1,0 +1,10 @@
+.write-post {
+    padding: 50px 30px;
+}
+
+.editor {
+    margin: 0 auto;
+    max-width: 1400px;
+    min-width: 600px;
+    width: 100%;
+}

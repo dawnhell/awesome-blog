@@ -1,7 +1,14 @@
-<div *ngIf="!isSignedIn">
-  <mat-card><h2>Please, sign in before you can write something</h2></mat-card>
-</div>
-
-<div *ngIf="isSignedIn">
-  <h3>you are signed in</h3>
+<div class="write-post">
+  <div *ngIf="!isSignedIn">
+    <mat-card><h2>Please, sign in before you can write something</h2></mat-card>
+  </div>
+  
+  <div *ngIf="isSignedIn" class="editor">
+      <md-editor
+        [(ngModel)]="editor"
+        [height]="'60vh'"
+        required 
+        maxlength="15000"
+      ></md-editor>
+  </div>
 </div>

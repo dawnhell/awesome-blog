@@ -19,6 +19,9 @@ import { WritePostComponent } from './write-post/write-post.component';
 import { MyPostsComponent } from './my-posts/my-posts.component';
 import { ReadPostComponent } from './read-post/read-post.component';
 
+import { LMarkdownEditorModule } from 'ngx-markdown-editor';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +40,8 @@ import { ReadPostComponent } from './read-post/read-post.component';
     ReactiveFormsModule,
     HttpClientModule,
     MaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LMarkdownEditorModule
   ],
   providers: [
     AuthService,

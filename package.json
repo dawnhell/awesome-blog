@@ -30,12 +30,12 @@
     "jsonwebtoken": "^8.3.0",
     "moment": "^2.22.2",
     "mongoose": "^5.2.6",
+    "ngx-markdown-editor": "^1.1.7",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "poet": "^2.0.3",
     "rxjs": "^6.0.0",
-    "simplemde": "^1.11.2",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
