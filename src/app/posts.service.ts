@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
+};
 
 @Injectable()
 export class PostsService {
@@ -10,7 +14,21 @@ export class PostsService {
         return this._httpClient.get('/api/posts');
     }
 
-    getPost (postName: string): Observable<any> {
-        return this._httpClient.get('/api/post/' + postName);
+    getPost (title: string): Observable<any> {
+        return this._httpClient.get('/api/post/' + title);
+    }
+
+    addPost (title: string, author: string, url: string): Observable<any> {
+        const body = new URLSearchParams();
+        body.set('title', title);
+        body.set('author', author);
+        body.set('url', url);
+        return this._httpClient.post('/add-post', body.toString(), httpOptions);
+    }
+
+    readPost (title: string): Observable<any> {
+        const body = new URLSearchParams();
+        body.set('title', title);
+        return this._httpClient.post('/read-post', body.toString(), httpOptions);
     }
 }

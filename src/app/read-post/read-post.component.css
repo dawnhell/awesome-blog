@@ -1,11 +1,54 @@
 .read-post {
-    width: 100%;
     background: #ffffff;
-    margin: 0;
+    -webkit-box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.2), 0 5px 16px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.2), 0 5px 16px 0 rgba(0, 0, 0, 0.19);
+    margin: 20px auto;
+    padding: 50px;
+    max-width: 900px;
+    min-width: 600px;
+    width: 100%;
+    position: relative;
+}
+
+.read-post .back-btn {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+
+.read-post h2 {
+    font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2d2d2d;
+    text-align: center;
+    margin: 0 0 40px 0;
     padding: 0;
 }
 
-.read-post p {
-    margin: 0;
+.read-post > div {
+    color: #1d1d1d;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+.read-post .post-info {
+    margin: 20px 0 50px;
+}
+
+.read-post .post-info .author {
+    font-size: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.read-post .post-info .date {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 18px;
+}
+
+.read-post .post-info .row {
+    position: relative;
+    height: 40px;
+}

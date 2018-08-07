@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
 import { PostsService } from '../posts.service';
 import { Post } from './../post/post.model';
+
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-posts',
@@ -27,7 +30,7 @@ export class PostsComponent implements OnInit {
               posts[post].title,
               posts[post].tags,
               posts[post].category,
-              posts[post].date,
+              moment(posts[post].date).format('MMMM Do YYYY, h:mm:ss a'),
               posts[post].content,
               posts[post].preview,
               posts[post].url,

@@ -1,3 +1,16 @@
 <div *ngIf="post !== null" class="read-post">
+  <button class="back-btn" (click)="goBack()" color="primary" mat-raised-button>Back</button>
+  <h2>{{ post.title }}</h2>
+
+  <div class="post-info">
+    <div class="row">
+      <span class="author">Author: <strong>{{ postAuthor }}</strong></span>
+      <span class="date">{{ post.date }}</span>
+    </div>
+    <mat-chip-list class="tags">
+      <mat-chip *ngFor="let tag of post.tags" color="accent" selectable="false">{{ tag }}</mat-chip>
+    </mat-chip-list>
+  </div>
+
   <div [innerHTML]="post.content"></div>
 </div>
