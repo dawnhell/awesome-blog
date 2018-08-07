@@ -1,5 +1,5 @@
 .write-post {
-    padding: 50px 30px;
+    padding: 20px 30px;
 }
 
 .editor {
@@ -12,4 +12,29 @@
 .editor h2 {
     margin: 10px 0 30px;
     text-align: center;
+}
+
+.post-info-form {
+  background: #ffffff;
+  width: 100%;
+  margin: 20px 0;
+  padding: 20px;
+}
+
+.post-info-form .title-input {
+  width: 300px;
+  vertical-align: bottom;
+  margin: 0 10px;
+}
+
+.post-info-form .tag-list-input {
+  width: 500px;
+  vertical-align: bottom;
+  margin: 0 10px;
+}
+
+.post-info-form .category-input {
+  width: 300px;
+  vertical-align: bottom;
+  margin: 0 10px;
 }

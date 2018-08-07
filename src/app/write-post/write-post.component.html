@@ -5,11 +5,48 @@
   
   <div *ngIf="isSignedIn" class="editor">
       <h2>Write your post here</h2>
+
+      <form class="post-info-form">
+          <mat-form-field class="title-input">
+            <input matInput placeholder="Title" [formControl]="titleFormControl">
+          </mat-form-field>
+
+          <mat-form-field class="tag-list-input">
+              <mat-chip-list #chipList>
+                  <mat-chip
+                    *ngFor="let tag of tags"
+                    [selectable]="selectable"
+                    color="primary"
+                    [removable]="removable"
+                    (removed)="remove(tag)"
+                  >
+                      {{tag.name}}
+                      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                  </mat-chip>
+                  <input
+                      placeholder="Tags"
+                      [matChipInputFor]="chipList"
+                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                      [matChipInputAddOnBlur]="addOnBlur"
+                      (matChipInputTokenEnd)="add($event)"
+                  >
+              </mat-chip-list>
+          </mat-form-field>
+
+          <mat-form-field class="category-input">
+            <input matInput placeholder="Category" [formControl]="categoryFormControl">
+          </mat-form-field>
+      </form>
+
       <md-editor
         [(ngModel)]="editor"
-        [height]="'60vh'"
+        [height]="'calc(60vh - 50px)'"
         required 
         maxlength="15000"
       ></md-editor>
+  </div>
+
+  <div class="action">
+    <button mat-raised-button color="primary" (click)="publish()">Publish</button>
   </div>
 </div>
