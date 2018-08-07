@@ -8,3 +8,8 @@
     min-width: 600px;
     width: 100%;
 }
+
+.editor h2 {
+    margin: 10px 0 30px;
+    text-align: center;
+}

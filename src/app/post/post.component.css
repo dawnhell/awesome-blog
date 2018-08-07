@@ -35,6 +35,7 @@
   margin: 0 25px;
   cursor: pointer;
   transition: box-shadow .3s, background .3s;
+  text-decoration: none;
 }
 
 .post .read-more-btn:hover {
