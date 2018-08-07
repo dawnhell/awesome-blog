@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,13 +6,27 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   isSignInVisible = false;
   isSignUpVisible = false;
   isSignedIn = false;
 
   username: string = null;
   jwtToken: string = null;
+
+  ngOnInit () {
+    this.checkLocalStorage();
+  }
+
+  checkLocalStorage () {
+    let user = window.localStorage.getItem('user');
+
+    if (user) {
+      this.isSignedIn = true;
+      this.username = user;
+      this.jwtToken = window.sessionStorage.accessToken;
+    }
+  }
 
   toggleSignIn (data: any) {
     this.isSignInVisible = !this.isSignInVisible;
@@ -32,5 +46,7 @@ export class AppComponent {
     this.username = null;
     this.jwtToken = null;
     this.isSignedIn = false;
+    window.localStorage.clear();
+    window.sessionStorage.clear();
   }
 }

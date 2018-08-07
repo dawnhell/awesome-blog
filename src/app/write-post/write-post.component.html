@@ -1,3 +1,7 @@
-<p>
-  write-a-post works!
-</p>
+<div *ngIf="!isSignedIn">
+  <mat-card><h2>Please, sign in before you can write something</h2></mat-card>
+</div>
+
+<div *ngIf="isSignedIn">
+  <h3>you are signed in</h3>
+</div>

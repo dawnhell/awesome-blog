@@ -56,6 +56,8 @@ export class SignInComponent {
             this.toggleVisibility.emit(data);
             this.emailFormControl.reset();
             this.passwordFormControl.reset();
+            window.sessionStorage.accessToken = data.token;
+            window.localStorage.setItem("user", data.email);
           }
         },
         error => {

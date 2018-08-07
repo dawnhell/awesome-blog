@@ -1,6 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
+const config = require('./../../config');
 
 const router = express.Router();
 
@@ -22,7 +23,7 @@ router.post('/signin', async (req, res, next) => {
         if (error) return next(error);
 
         const body = { _id: user._id, email: user.email };
-        const token = jwt.sign({ user: body }, 'super_secrete_salt');
+        const token = jwt.sign({ user: body }, config.jwtSecret);
 
         return res.json({ token, "email": user.email });
       });
