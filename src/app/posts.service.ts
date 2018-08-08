@@ -18,11 +18,12 @@ export class PostsService {
         return this._httpClient.get('/api/post/' + title);
     }
 
-    addPost (title: string, author: string, url: string): Observable<any> {
+    addPost (title: string, author: string, url: string, post: string): Observable<any> {
         const body = new URLSearchParams();
         body.set('title', title);
         body.set('author', author);
         body.set('url', url);
+        body.set('post', post);
         return this._httpClient.post('/add-post', body.toString(), httpOptions);
     }
 

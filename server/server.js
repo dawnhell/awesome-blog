@@ -40,6 +40,9 @@ poet
   .addRoute('/api/posts', (req, res, next) => {
     res.json({ 'posts': poet.helpers.getPosts() })
   })
+  .watch(() => {
+
+  })
   .init().then(() => {
 
   });

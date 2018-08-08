@@ -8,7 +8,10 @@
 
       <form class="post-info-form">
           <mat-form-field class="title-input">
-            <input matInput placeholder="Title" [formControl]="titleFormControl">
+            <input matInput placeholder="Title" [formControl]="titleFormControl" [errorStateMatcher]="titleFormMatcher">
+            <mat-error *ngIf="titleFormControl.hasError('required')">
+              Title is <strong>required</strong>
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field class="tag-list-input">
@@ -34,19 +37,24 @@
           </mat-form-field>
 
           <mat-form-field class="category-input">
-            <input matInput placeholder="Category" [formControl]="categoryFormControl">
+            <input matInput placeholder="Category" [formControl]="categoryFormControl" [errorStateMatcher]="categoryFormMatcher">
+            <mat-error *ngIf="categoryFormControl.hasError('required')">
+              Category is <strong>required</strong>
+            </mat-error>
           </mat-form-field>
       </form>
 
       <md-editor
         [(ngModel)]="editor"
-        [height]="'calc(60vh - 50px)'"
+        [height]="'calc(60vh - 60px)'"
         required 
         maxlength="15000"
       ></md-editor>
   </div>
 
   <div class="action">
-    <button mat-raised-button color="primary" (click)="publish()">Publish</button>
+    <button mat-raised-button color="primary" (click)="publish()" [disabled]="isBtnDisabled()">Publish</button>
   </div>
+
+  <div *ngIf="showSpinner" class="spinner"></div>
 </div>
