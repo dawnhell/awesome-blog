@@ -80,8 +80,8 @@
     background: rgba(0,0,0,.17);
     border-radius: 50%;
     border: 3px solid #fff; 
-    border-top-color: #bdbdbd;
-    border-bottom: 3px solid #cacaca; 
+    border-top-color: #5d18ff;
+    border-bottom: 3px solid #3787ff; 
     animation: spin 1.5s linear infinite;
   }
   

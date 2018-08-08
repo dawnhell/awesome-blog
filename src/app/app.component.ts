@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,8 @@ export class AppComponent implements OnInit {
 
   username: string = null;
   jwtToken: string = null;
+
+  constructor (private _router: Router) {}
 
   ngOnInit () {
     this.checkLocalStorage();
@@ -48,5 +51,6 @@ export class AppComponent implements OnInit {
     this.isSignedIn = false;
     window.localStorage.clear();
     window.sessionStorage.clear();
+    this._router.navigateByUrl('/posts');
   }
 }

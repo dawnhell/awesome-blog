@@ -26,7 +26,6 @@ export class PostErrorStateMatcher implements ErrorStateMatcher {
 })
 
 export class WritePostComponent implements OnInit {
-  isSignedIn = false;
   username = null;
   editor: any;
   selectable = true;
@@ -80,11 +79,7 @@ export class WritePostComponent implements OnInit {
 
   checkJWTToken () {
     const user = window.localStorage.getItem('user');
-
-    if (user) {
-      this.isSignedIn = true;
-      this.username = user;
-    }
+    this.username = user;
   }
 
   publish () {

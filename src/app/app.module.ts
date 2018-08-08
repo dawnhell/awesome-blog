@@ -12,12 +12,14 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostComponent } from './post/post.component';
-
-import { AuthService } from './auth.service';
-import { PostsService } from './posts.service';
 import { WritePostComponent } from './write-post/write-post.component';
 import { MyPostsComponent } from './my-posts/my-posts.component';
 import { ReadPostComponent } from './read-post/read-post.component';
+import { AboutComponent } from './about/about.component';
+
+import { AuthService } from './auth.service';
+import { PostsService } from './posts.service';
+import { AuthGuardService } from './auth-guard.service';
 
 import { LMarkdownEditorModule } from 'ngx-markdown-editor';
 
@@ -31,7 +33,8 @@ import { LMarkdownEditorModule } from 'ngx-markdown-editor';
     PostComponent,
     WritePostComponent,
     MyPostsComponent,
-    ReadPostComponent
+    ReadPostComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import { LMarkdownEditorModule } from 'ngx-markdown-editor';
   ],
   providers: [
     AuthService,
-    PostsService
+    PostsService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
