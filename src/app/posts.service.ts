@@ -18,6 +18,10 @@ export class PostsService {
         return this._httpClient.get('/api/post/' + title);
     }
 
+    getPostsByAuthor (author: string): Observable<any> {
+        return this._httpClient.get('/api/posts-by-author?author=' + author);
+    }
+
     addPost (title: string, author: string, url: string, post: string): Observable<any> {
         const body = new URLSearchParams();
         body.set('title', title);

@@ -10,6 +10,8 @@ const routes = require('./routes/routes');
 const secureRoutes = require('./routes/secure-routes');
 const postRoutes = require('./posts/posts');
 
+const PostModel = require('./model/postModel');
+
 mongoose.connect('mongodb://127.0.0.1:27017/awesome-blog-db');
 mongoose.connection.on('error', error => console.log(error));
 mongoose.Promise = global.Promise;
@@ -45,6 +47,23 @@ poet
   })
   .init().then(() => {
 
+  });
+
+  app.get('/api/posts-by-author', async (req, res, next) => {
+      const author = req.query.author;
+      const posts = await PostModel.find({ author });
+  
+      const realPosts = [];
+      for (let i in posts) {
+        let post = poet.helpers.getPost(posts[i].title);
+        realPosts.push(post);
+      }
+  
+      if (!realPosts) {
+          next({ error: 'Posts not found.' });
+      }
+  
+      res.json({ realPosts });
   });
 
 //=======================================================
