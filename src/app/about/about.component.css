@@ -1,0 +1,21 @@
+.about {
+    max-width: 1400px;
+    min-width: 600px;
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.github-link span {
+    vertical-align: middle;
+}
+
+.github-link a {
+    vertical-align: middle;
+    padding-left: 10px;
+}
+
+.github-link svg {
+    vertical-align: middle;
+}
+

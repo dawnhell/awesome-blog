@@ -2,43 +2,45 @@
   <div class="editor">
       <h2>Write your post here</h2>
 
-      <form class="post-info-form">
-          <mat-form-field class="title-input">
-            <input matInput placeholder="Title" [formControl]="titleFormControl" [errorStateMatcher]="titleFormMatcher">
-            <mat-error *ngIf="titleFormControl.hasError('required')">
-              Title is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-
-          <mat-form-field class="tag-list-input">
-              <mat-chip-list #chipList>
-                  <mat-chip
-                    *ngFor="let tag of tags"
-                    [selectable]="selectable"
-                    color="primary"
-                    [removable]="removable"
-                    (removed)="remove(tag)"
-                  >
-                      {{tag.name}}
-                      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-                  </mat-chip>
-                  <input
-                      placeholder="Tags"
-                      [matChipInputFor]="chipList"
-                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                      [matChipInputAddOnBlur]="addOnBlur"
-                      (matChipInputTokenEnd)="add($event)"
-                  >
-              </mat-chip-list>
-          </mat-form-field>
-
-          <mat-form-field class="category-input">
-            <input matInput placeholder="Category" [formControl]="categoryFormControl" [errorStateMatcher]="categoryFormMatcher">
-            <mat-error *ngIf="categoryFormControl.hasError('required')">
-              Category is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-      </form>
+      <div class="post-info-form-wrapper">
+          <form class="post-info-form">
+              <mat-form-field class="title-input">
+                <input matInput placeholder="Title" [formControl]="titleFormControl" [errorStateMatcher]="titleFormMatcher">
+                <mat-error *ngIf="titleFormControl.hasError('required')">
+                  Title is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+    
+              <mat-form-field class="tag-list-input">
+                  <mat-chip-list #chipList>
+                      <mat-chip
+                        *ngFor="let tag of tags"
+                        [selectable]="selectable"
+                        color="primary"
+                        [removable]="removable"
+                        (removed)="remove(tag)"
+                      >
+                          {{tag.name}}
+                          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                      </mat-chip>
+                      <input
+                          placeholder="Tags"
+                          [matChipInputFor]="chipList"
+                          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                          [matChipInputAddOnBlur]="addOnBlur"
+                          (matChipInputTokenEnd)="add($event)"
+                      >
+                  </mat-chip-list>
+              </mat-form-field>
+    
+              <mat-form-field class="category-input">
+                <input matInput placeholder="Category" [formControl]="categoryFormControl" [errorStateMatcher]="categoryFormMatcher">
+                <mat-error *ngIf="categoryFormControl.hasError('required')">
+                  Category is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+          </form>
+      </div>
 
       <md-editor
         [(ngModel)]="editor"
