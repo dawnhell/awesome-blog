@@ -1,14 +1,6 @@
 {{{
   "title": "Testing markdown",
   "tags": ["Markdown"],
-  "category": "Sussu",
-  "date": "2018-08-08T10:50:25+03:00"
-}}}
-
-
-{{{
-  "title": "Testing markdown",
-  "tags": ["Markdown"],
   "category": "Curiosity",
   "date": "2018-08-08T10:44:47+03:00"
 }}}
